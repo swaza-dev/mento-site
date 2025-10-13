@@ -1,4 +1,4 @@
-# Meanunipul - Mento AI Journal Blog
+# Mento Site - Official Website & Blog
 
 A beautiful, minimal blog for sharing product updates and development progress for **Mento AI Journal**.
 
@@ -33,7 +33,7 @@ This powers [mymento.app](https://www.mymento.app/)
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd meanunipul
+cd mento-site
 
 # Open in browser
 open index.html
