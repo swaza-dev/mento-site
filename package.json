@@ -1,4 +1,7 @@
 {
+  "name": "meanunipul",
+  "version": "1.0.0",
+  "description": "Mento AI Journal - Product Updates & Blog",
   "private": true,
   "dependencies": {
     "@vercel/edge": "^0.1.2"

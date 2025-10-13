@@ -1,14 +1,61 @@
+# Meanunipul - Mento AI Journal Blog
+
+A beautiful, minimal blog for sharing product updates and development progress for **Mento AI Journal**.
+
+## 🚀 Features
+
+- **Clean, Blog-Style Design**: Professional layout optimized for reading
+- **Privacy-First**: Powered by Vercel with first-party analytics
+- **Fast & Global**: Deployed to Vercel Edge Network for instant loading worldwide
+- **Mobile-Responsive**: Looks great on all devices
+- **Easy to Update**: Simple HTML - just edit and push
+
+## 🎨 Design System
+
+Built with Mento's brand colors:
+- **Fidelity Green**: `#008755`
+- **Typography**: SF Pro Display system fonts
+- **Modern Card Layout**: Clean, spacious design
+
+## 📝 How to Add New Posts
+
+1. Open `index.html`
+2. Copy an existing `<article class="post">` block
+3. Update the date, tag, title, and content
+4. Save and deploy via `git push`
+
+## 🌐 Live Site
+
+This powers [mymento.app](https://www.mymento.app/)
+
+## 🔧 Local Development
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd meanunipul
+
+# Open in browser
+open index.html
+```
+
+## 📦 Deployment
+
+This site is deployed to Vercel. Any push to `main` automatically deploys.
+
+```bash
+git add .
+git commit -m "New blog post"
+git push
+```
+
+## 🛠️ Tech Stack
+
+- Pure HTML + CSS (no build step needed)
+- Vercel Edge Network
+- Vercel Analytics
+- Vercel Edge Middleware (security headers)
+
 ---
-name: HTML Starter
-slug: html-starter-with-analytics
-description: HTML5 template with analytics and advanced routing configuration.
-deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/html&project-name=html
-relatedTemplates:
-  - nextjs-boilerplate
----
 
-# HTML Starter
-
-This is a starter HTML5 templates which is configured with Vercel Analytics (through a `script` tag), advanced routing with [Vercel Edge Middleware](https://vercel.com/docs/concepts/functions/edge-middleware), as well as some basic styles
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/html&project-name=html)
+Built with ❤️ for the Mento community
