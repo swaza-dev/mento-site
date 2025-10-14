@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Preview - Mento</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-primary: #008755;
+            --green-secondary: #00A876;
+            --green-light: #00C085;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0D3B2F 0%, #00634A 50%, #00A876 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Header/Nav */
+        .header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        /* Main Content */
+        .preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .preview-header {
+            margin-bottom: 3rem;
+        }
+
+        .preview-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .preview-header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 4rem;
+            padding: 2rem 0;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .carousel-item {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Navigation Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--green-primary);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-arrow.prev {
+            left: -25px;
+        }
+
+        .carousel-arrow.next {
+            right: -25px;
+        }
+
+        /* Dots Navigation */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: white;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* Feature list */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: white;
+            color: var(--green-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .preview-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .preview-header p {
+                font-size: 1.25rem;
+            }
+
+            .carousel {
+                max-width: 300px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: -10px;
+            }
+
+            .carousel-arrow.next {
+                right: -10px;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+
+    <div class="preview-container">
+        <div class="preview-header">
+            <h1>See Mento in Action</h1>
+            <p>Experience your future memory assistant</p>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="public/screenshots/01_home_screen.png" alt="Capture Your Thoughts">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/02_entry_creation.png" alt="Speak, Write, or Template">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/03_voice_recording.png" alt="Voice Recording">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/04_templates.png" alt="Quick Note Templates">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/05_entries_list.png" alt="Track Your Growth">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/06_insights.png" alt="AI-Powered Insights">
+                </div>
+                <div class="carousel-item">
+                    <img src="public/screenshots/07_profile.png" alt="Your Personal Memory Assistant">
+                </div>
+            </div>
+
+            <button class="carousel-arrow prev" aria-label="Previous">‹</button>
+            <button class="carousel-arrow next" aria-label="Next">›</button>
+
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0"></button>
+                <button class="carousel-dot" data-index="1"></button>
+                <button class="carousel-dot" data-index="2"></button>
+                <button class="carousel-dot" data-index="3"></button>
+                <button class="carousel-dot" data-index="4"></button>
+                <button class="carousel-dot" data-index="5"></button>
+                <button class="carousel-dot" data-index="6"></button>
+            </div>
+        </div>
+
+        <div class="features-list">
+            <div class="feature-card">
+                <h3>Voice & Text</h3>
+                <p>Speak naturally or type. Your choice, every time.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Quick Templates</h3>
+                <p>Start writing faster with smart templates.</p>
+            </div>
+            <div class="feature-card">
+                <h3>AI Insights</h3>
+                <p>Discover patterns in your thoughts and growth.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Private & Secure</h3>
+                <p>Your thoughts stay yours. Always encrypted.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="/waitlist" class="cta-button">Join the Waitlist</a>
+        </div>
+    </div>
+
+    <script>
+        // Carousel functionality
+        const carousel = {
+            currentIndex: 0,
+            items: document.querySelectorAll('.carousel-item'),
+            dots: document.querySelectorAll('.carousel-dot'),
+            autoPlayInterval: null,
+            autoPlayDelay: 4000,
+
+            init() {
+                document.querySelector('.carousel-arrow.prev').addEventListener('click', () => {
+                    this.goToPrevious();
+                    this.resetAutoPlay();
+                });
+
+                document.querySelector('.carousel-arrow.next').addEventListener('click', () => {
+                    this.goToNext();
+                    this.resetAutoPlay();
+                });
+
+                this.dots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        this.goToSlide(index);
+                        this.resetAutoPlay();
+                    });
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.goToPrevious();
+                        this.resetAutoPlay();
+                    } else if (e.key === 'ArrowRight') {
+                        this.goToNext();
+                        this.resetAutoPlay();
+                    }
+                });
+
+                let touchStartX = 0;
+                let touchEndX = 0;
+                const carouselElement = document.querySelector('.carousel-inner');
+
+                carouselElement.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                carouselElement.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe();
+                });
+
+                this.startAutoPlay();
+                carouselElement.addEventListener('mouseenter', () => this.stopAutoPlay());
+                carouselElement.addEventListener('mouseleave', () => this.startAutoPlay());
+            },
+
+            handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    this.goToNext();
+                    this.resetAutoPlay();
+                }
+                if (touchEndX > touchStartX + 50) {
+                    this.goToPrevious();
+                    this.resetAutoPlay();
+                }
+            },
+
+            goToSlide(index) {
+                this.items[this.currentIndex].classList.remove('active');
+                this.dots[this.currentIndex].classList.remove('active');
+                this.currentIndex = index;
+                this.items[this.currentIndex].classList.add('active');
+                this.dots[this.currentIndex].classList.add('active');
+            },
+
+            goToNext() {
+                const nextIndex = (this.currentIndex + 1) % this.items.length;
+                this.goToSlide(nextIndex);
+            },
+
+            goToPrevious() {
+                const prevIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+                this.goToSlide(prevIndex);
+            },
+
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.goToNext();
+                }, this.autoPlayDelay);
+            },
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            },
+
+            resetAutoPlay() {
+                this.stopAutoPlay();
+                this.startAutoPlay();
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => carousel.init());
+        } else {
+            carousel.init();
+        }
+    </script>
+</body>
+</html>
+
