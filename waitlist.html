@@ -290,38 +290,64 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // Initialize Supabase client
+        const SUPABASE_URL = 'https://nyivjehqhtmcyafbyboh.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55aXZqZWhxaHRtY3lhZmJ5Ym9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc2MjE4NTYsImV4cCI6MjA3MzE5Nzg1Nn0.2gfaxVzbRjIcqgVkWzPcXnUBqzBNJEUno21SgP6n-Wk';
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
         document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
+            
             const formData = {
                 name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                timestamp: new Date().toISOString()
+                email: document.getElementById('email').value
             };
 
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-            
-            // Clear form
-            this.reset();
+            try {
+                // Insert into Supabase
+                const { data, error } = await supabaseClient
+                    .from('waitlist')
+                    .insert([formData])
+                    .select();
 
-            // Hide form after submission (optional)
-            setTimeout(() => {
-                this.style.opacity = '0.5';
-                this.style.pointerEvents = 'none';
-            }, 300);
+                if (error) {
+                    // Check if it's a duplicate email error
+                    if (error.code === '23505') {
+                        alert('This email is already on the waitlist! 🎉');
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    
+                    // Clear form
+                    this.reset();
 
-            // TODO: Replace with your actual backend endpoint or service
-            // Example: Send to Google Forms, Airtable, ConvertKit, etc.
-            console.log('Waitlist submission:', formData);
-            
-            // You can integrate with services like:
-            // - Vercel Forms: Just add name="waitlist" to the form
-            // - ConvertKit API
-            // - Mailchimp API
-            // - Google Sheets via Apps Script
-            // - Airtable API
+                    // Hide form after submission
+                    setTimeout(() => {
+                        this.style.opacity = '0.5';
+                        this.style.pointerEvents = 'none';
+                    }, 300);
+                }
+            } catch (error) {
+                console.error('Error submitting to waitlist:', error);
+                alert('Oops! Something went wrong. Please try again or email us at support@mymento.app');
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
         });
     </script>
 </body>
