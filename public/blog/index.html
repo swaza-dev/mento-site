@@ -385,7 +385,7 @@
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.2s;
         }
 
@@ -394,10 +394,17 @@
             box-shadow: 0 4px 12px rgba(0, 135, 85, 0.08);
         }
 
-        .feature-icon {
-            width: 40px;
-            height: 40px;
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 0.75rem;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
             color: var(--green-primary);
         }
 
@@ -405,13 +412,14 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--gray-900);
-            margin-bottom: 0.5rem;
+            margin: 0;
         }
 
         .feature-item p {
             font-size: 1rem;
             color: var(--gray-600);
             line-height: 1.6;
+            margin: 0;
         }
 
         /* Subscribe Section - Minimal */
@@ -639,35 +647,43 @@
 
                 <div class="feature-grid">
                     <div class="feature-item">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 1c-1.66 0-3 1.34-3 3v6c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3z"/>
-                            <path d="M19 10v1c0 3.87-3.13 7-7 7s-7-3.13-7-7v-1M12 18v5m-4 0h8"/>
-                        </svg>
-                        <h4>Voice, Text, or Templates</h4>
+                        <div class="feature-header">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1c-1.66 0-3 1.34-3 3v6c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3z"/>
+                                <path d="M19 10v1c0 3.87-3.13 7-7 7s-7-3.13-7-7v-1M12 18v5m-4 0h8"/>
+                            </svg>
+                            <h4>Voice, Text, or Templates</h4>
+                        </div>
                         <p>Speak naturally, type freely, or use Quick Note templates for specific topics.</p>
                     </div>
                     <div class="feature-item">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                        <h4>Moments</h4>
+                        <div class="feature-header">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <h4>Moments</h4>
+                        </div>
                         <p>Your personal time machine showing entries from past years on the same day.</p>
                     </div>
                     <div class="feature-item">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 3v18h18"/>
-                            <path d="M18 17V9l-5 5-5-3-3 4"/>
-                        </svg>
-                        <h4>Smart Insights</h4>
+                        <div class="feature-header">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18 17V9l-5 5-5-3-3 4"/>
+                            </svg>
+                            <h4>Smart Insights</h4>
+                        </div>
                         <p>AI-powered analysis showing your mood trends and topic patterns.</p>
                     </div>
                     <div class="feature-item">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                        <h4>Privacy First</h4>
+                        <div class="feature-header">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <h4>Privacy First</h4>
+                        </div>
                         <p>Everything stays on your phone with optional encrypted backup.</p>
                     </div>
                 </div>
