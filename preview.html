@@ -106,6 +106,43 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
+        /* Animated waveform overlay for voice recording screenshot */
+        .carousel-item.voice-recording {
+            position: relative;
+        }
+
+        .waveform-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .waveform-bar {
+            width: 3px;
+            background: linear-gradient(180deg, #00A876, #00C085);
+            border-radius: 2px;
+            animation: waveAnimation 1.2s ease-in-out infinite;
+        }
+
+        .waveform-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .waveform-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+        .waveform-bar:nth-child(3) { height: 45px; animation-delay: 0.2s; }
+        .waveform-bar:nth-child(4) { height: 30px; animation-delay: 0.3s; }
+        .waveform-bar:nth-child(5) { height: 50px; animation-delay: 0.4s; }
+        .waveform-bar:nth-child(6) { height: 35px; animation-delay: 0.5s; }
+        .waveform-bar:nth-child(7) { height: 25px; animation-delay: 0.6s; }
+
+        @keyframes waveAnimation {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.7; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -291,8 +328,17 @@
                 <div class="carousel-item">
                     <img src="public/screenshots/02_entry_creation.png" alt="Speak, Write, or Template">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item voice-recording">
                     <img src="public/screenshots/03_voice_recording.png" alt="Voice Recording">
+                    <div class="waveform-overlay">
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="public/screenshots/04_templates.png" alt="Quick Note Templates">
