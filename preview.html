@@ -111,6 +111,19 @@
             position: relative;
         }
 
+        /* White mask to cover static waveform in screenshot */
+        .waveform-mask {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 80px;
+            background: white;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
         .waveform-overlay {
             position: absolute;
             top: 50%;
@@ -121,6 +134,7 @@
             align-items: center;
             justify-content: center;
             pointer-events: none;
+            z-index: 1;
         }
 
         .waveform-bar {
@@ -330,6 +344,7 @@
                 </div>
                 <div class="carousel-item voice-recording">
                     <img src="public/screenshots/03_voice_recording.png" alt="Voice Recording">
+                    <div class="waveform-mask"></div>
                     <div class="waveform-overlay">
                         <div class="waveform-bar"></div>
                         <div class="waveform-bar"></div>
