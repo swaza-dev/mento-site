@@ -100,11 +100,28 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
 
         .nav-link:hover {
             color: var(--green-primary);
+        }
+
+        /* Black box styling for App Preview button (Anthropic style) */
+        .nav-link.app-preview-btn {
+            background: #000000;
+            color: white;
+            padding: 0.6rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link.app-preview-btn:hover {
+            background: #1a1a1a;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Header - Beautiful Hero */
@@ -566,7 +583,7 @@
             </a>
             <div class="nav-right">
                 <a href="https://www.mymento.app" class="nav-link">About</a>
-                <a href="https://www.mymento.app/preview" class="nav-link">App Preview</a>
+                <a href="https://www.mymento.app/preview" class="nav-link app-preview-btn">App Preview</a>
             </div>
         </div>
     </nav>
