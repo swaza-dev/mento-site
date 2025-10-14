@@ -2,6 +2,7 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "installCommand": "",
-  "framework": null
+  "framework": null,
+  "cleanUrls": true
 }
 
