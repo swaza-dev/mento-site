@@ -93,10 +93,30 @@
         }
 
         .benefit-icon {
-            color: var(--green-primary);
-            font-size: 1.25rem;
+            width: 24px;
+            height: 24px;
             flex-shrink: 0;
             margin-top: 2px;
+        }
+
+        .benefit-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--green-primary);
+        }
+
+        .success-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .success-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
         }
 
         .benefit-text {
@@ -253,21 +273,42 @@
 
         <div class="benefits">
             <div class="benefit-item">
-                <span class="benefit-icon">✨</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                </div>
                 <span class="benefit-text"><strong>Early Access</strong> – Get Mento before the public launch</span>
             </div>
             <div class="benefit-item">
-                <span class="benefit-icon">🎁</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="8" width="18" height="12" rx="2"/>
+                        <path d="M12 8V3M8 3h8M12 11v6"/>
+                    </svg>
+                </div>
                 <span class="benefit-text"><strong>Founding Member Benefits</strong> – Special perks for early supporters</span>
             </div>
             <div class="benefit-item">
-                <span class="benefit-icon">📬</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
                 <span class="benefit-text"><strong>Launch Updates</strong> – Stay informed about our progress</span>
             </div>
         </div>
 
         <div id="successMessage" class="success-message">
-            <strong>🎉 You're on the list!</strong><br>
+            <strong>
+                <span class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </span>
+                You're on the list!
+            </strong><br>
             Thanks for joining. We'll be in touch soon with updates.
         </div>
 
