@@ -201,20 +201,20 @@
             <p><strong>What we CANNOT see:</strong> The content of your journal entries.</p>
 
             <h3>Temporary AI Processing</h3>
-            <p>To provide AI-powered insights (mood detection, topic analysis, transcription), your journal content must be temporarily sent to OpenAI's API for processing. Important details:</p>
+            <p>To provide AI-powered insights (mood detection, topic analysis, transcription), your journal content may be temporarily sent to trusted AI processing partners for analysis. Important details:</p>
             <ul>
-                <li>Your entries are decrypted on your device (using your passcode)</li>
-                <li>Sent to OpenAI's API over encrypted HTTPS connection</li>
-                <li>OpenAI analyzes the content and returns insights to your device</li>
-                <li>OpenAI permanently deletes all API data after 30 days per their API Data Usage Policy</li>
-                <li>OpenAI does NOT use API data for training their models</li>
+                <li>Your entries are decrypted on your device (using your passcode) only when AI features are requested</li>
+                <li>Sent to AI processing partners over encrypted HTTPS connections</li>
+                <li>AI partners analyze the content and return insights to your device</li>
+                <li>All AI processing partners permanently delete data after processing (typically within 30 days)</li>
+                <li>AI partners do NOT use your data for training their models</li>
                 <li>The insights are saved to your device and included in your encrypted backups</li>
                 <li>Mento servers never receive or store your unencrypted journal content</li>
             </ul>
-            <p>This temporary processing is necessary for AI features to work. If you prefer not to use AI features, you can journal without them, and your entries will remain entirely local to your device.</p>
+            <p>This temporary processing is necessary for advanced AI features to work. You have full control - if you prefer not to use AI features, you can journal without them, and your entries will remain entirely local to your device. We're also working on on-device AI processing options for the future.</p>
 
             <h3>Voice Recordings</h3>
-            <p>When you record a voice entry, the audio is temporarily sent to OpenAI's Whisper API for transcription. The transcription is returned to your device and saved as text. OpenAI permanently deletes voice recordings after 30 days. Original audio recordings are not stored on Mento's servers - they exist only on your device (if you choose to save them) or are discarded after transcription.</p>
+            <p>When you record a voice entry, the audio may be temporarily sent to our speech recognition partners for transcription. The transcription is returned to your device and saved as text. All voice recordings are permanently deleted after processing. Original audio recordings are not stored on Mento's servers - they exist only on your device (if you choose to save them) or are discarded after transcription.</p>
 
             <h3>Usage Analytics (Anonymous)</h3>
             <p>We collect anonymized usage data to improve Mento:</p>
@@ -245,10 +245,10 @@
             <h2>3. Information Sharing and Third Parties</h2>
             <p>We share your information only with trusted service providers necessary to operate Mento. We NEVER sell your data to advertisers or data brokers. Here's exactly who has access to what:</p>
             <ul>
-                <li><strong>OpenAI</strong> - Your journal content is temporarily sent to OpenAI's API for AI analysis (mood detection, transcription, insights). OpenAI processes it, returns results, then permanently deletes it after 30 days. OpenAI does not use API data for training.</li>
-                <li><strong>Supabase</strong> - Stores your encrypted journal backups (which we cannot decrypt), account information (email, name), and metadata (backup timestamps, entry counts). Supabase cannot decrypt your journal content.</li>
-                <li><strong>RevenueCat</strong> - Processes subscription payments and manages in-app purchases. Receives only payment data, subscription status, and purchase history - never journal content.</li>
-                <li><strong>Sentry</strong> - Error tracking and app monitoring. Receives only technical error logs, stack traces, and device diagnostics - never journal content or personal entries.</li>
+                <li><strong>AI Processing Partners</strong> - Your journal content is temporarily sent to trusted AI partners for analysis (mood detection, transcription, insights). These partners process it, return results, then permanently delete it. They do not use your data for training.</li>
+                <li><strong>Cloud Storage Provider</strong> - Stores your encrypted journal backups (which we cannot decrypt), account information (email, name), and metadata (backup timestamps, entry counts). They cannot decrypt your journal content.</li>
+                <li><strong>Payment Processor</strong> - Processes subscription payments and manages in-app purchases. Receives only payment data, subscription status, and purchase history - never journal content.</li>
+                <li><strong>Analytics Provider</strong> - Error tracking and app monitoring. Receives only technical error logs, stack traces, and device diagnostics - never journal content or personal entries.</li>
                 <li><strong>Legal Compliance</strong> - We may disclose information if legally required (subpoena, court order, legal process). However, since we cannot decrypt your journal entries, we can only provide account information, metadata, and encrypted backups (which require your passcode to decrypt).</li>
             </ul>
 
@@ -259,7 +259,7 @@
                 <li><strong>Passcode Security:</strong> Your backup passcode is stored securely on your device only (iOS Keychain / Android Keystore). It never leaves your device and is never transmitted to our servers.</li>
                 <li><strong>End-to-End Encryption:</strong> Your journal content is encrypted on your device, transmitted encrypted, stored encrypted, and can only be decrypted by you with your passcode.</li>
                 <li><strong>Data in Transit:</strong> All data transmitted between your device and our servers uses TLS 1.3+ encryption (HTTPS).</li>
-                <li><strong>Server Security:</strong> Our servers (Supabase) use industry-standard security including firewalls, intrusion detection systems, access controls, and regular security audits.</li>
+                <li><strong>Server Security:</strong> Our cloud storage servers use industry-standard security including firewalls, intrusion detection systems, access controls, and regular security audits.</li>
                 <li><strong>Access Controls:</strong> Even Mento employees cannot access your journal entries. We can only see encrypted backups and account metadata.</li>
                 <li><strong>Regular Security Audits:</strong> We conduct regular security assessments and promptly patch any discovered vulnerabilities.</li>
                 <li><strong>No Plaintext Storage:</strong> Your journal content is never stored in plaintext on our servers.</li>

@@ -690,7 +690,7 @@
 
                 <h3>Input Methods: Voice, Text, or Structured Templates</h3>
                 <p>The app supports three input methods depending on your needs:</p>
-                <p><strong>Voice:</strong> Tap the microphone and speak naturally. Your words are automatically transcribed using OpenAI's Whisper model.</p>
+                <p><strong>Voice:</strong> Tap the microphone and speak naturally. Your words are automatically transcribed using advanced speech recognition technology.</p>
                 <p><strong>Text:</strong> Standard text input for when you want to type your thoughts.</p>
                 <p><strong>Quick Note templates:</strong> Pre-structured formats for common entry types. The app includes 11 built-in templates (with the ability to create custom ones):</p>
                 <ul>
@@ -704,9 +704,9 @@
                 <p>Templates work with both voice and text input. The AI adapts to your speaking style and formats entries automatically.</p>
 
                 <h4>Behind the Scenes: AI-Powered Intelligence</h4>
-                <p>When you speak into Mento, something remarkable happens. Your voice travels through OpenAI's Whisper model—one of the most advanced speech recognition systems ever built. Whisper doesn't just transcribe words; it understands context, handles accents, filters background noise, and even adds proper punctuation. It's trained on 680,000 hours of multilingual data, making it incredibly accurate even in challenging conditions.</p>
+                <p>When you speak into Mento, something remarkable happens. Your voice is processed by one of the most advanced speech recognition systems available. It doesn't just transcribe words; it understands context, handles accents, filters background noise, and even adds proper punctuation. Trained on extensive multilingual data, it's incredibly accurate even in challenging conditions.</p>
                 
-                <p>But we go further. After transcription, GPT-4 analyzes your entry in real-time, detecting emotional undertones, identifying key topics, and understanding the themes that matter to you. It's not just converting speech to text—it's comprehending the meaning behind your words.</p>
+                <p>But we go further. After transcription, our AI analyzes your entry in real-time, detecting emotional undertones, identifying key topics, and understanding the themes that matter to you. It's not just converting speech to text—it's comprehending the meaning behind your words.</p>
                 
                 <p>When you use Quick Note templates, the AI adapts to your speaking style. Say "I did 3 sets of 10 pushups today" and it automatically structures it into a proper workout log. Mention "I had an idea about improving our customer onboarding" and it formats it with next action items. The AI understands intent, not just words.</p>
 
@@ -715,7 +715,7 @@
                 <p><em>Available after creating 7 entries.</em></p>
 
                 <h3>AI Insights: Automated Analysis</h3>
-                <p>The app uses GPT-4 to analyze your entries and provide:</p>
+                <p>The app uses advanced AI to analyze your entries and provide:</p>
                 <ul>
                     <li><strong>Topic clustering</strong> - Identifies recurring themes (work, relationships, health, etc.)</li>
                     <li><strong>Mood tracking</strong> - Sentiment analysis over time</li>
@@ -730,7 +730,7 @@
                 <p>All analysis happens automatically. No manual tagging or categorization required.</p>
 
                 <h4>The AI Engine: Understanding You Over Time</h4>
-                <p>Every entry you create becomes part of your personal knowledge graph. GPT-4 doesn't just read individual entries—it connects the dots across weeks, months, and years of your life.</p>
+                <p>Every entry you create becomes part of your personal knowledge graph. Our AI doesn't just read individual entries—it connects the dots across weeks, months, and years of your life.</p>
                 
                 <p>Here's what happens behind the scenes: When you request insights, the AI performs semantic analysis across your entire journal history. It identifies recurring themes, detects emotional patterns, notices when certain topics correlate with mood changes, and recognizes your personal growth trajectory.</p>
                 
@@ -753,7 +753,7 @@
                 <h4>The Privacy-AI Balance: How We Do It</h4>
                 <p>Here's the honest truth: powerful AI features require cloud processing. We're completely transparent about this trade-off.</p>
                 
-                <p>When you use voice transcription or request AI insights, your entries are sent to OpenAI's API over encrypted HTTPS connections. OpenAI processes them in secure, ephemeral compute environments—meaning your data isn't stored on their servers after processing. Per their API policy, your entries are never used to train their models.</p>
+                <p>When you use voice transcription or request AI insights, your entries are sent to trusted AI processing partners over encrypted HTTPS connections. These partners process them in secure, ephemeral compute environments—meaning your data isn't stored on their servers after processing. Per their policies, your entries are never used to train their models.</p>
                 
                 <p>For encrypted backup, we use AES-256-GCM encryption—the same bank-level security used by financial institutions. Here's the technical flow: Your phone generates a unique encryption key derived from your device credentials. Before any entry leaves your phone, it's encrypted locally. The encrypted data is then sent to our SOC 2 Type II certified PostgreSQL database. Without your device-specific key, the data is cryptographically useless—even to us.</p>
                 
@@ -816,14 +816,14 @@
                 <h4>Can you read my entries?</h4>
                 <p>No. With encryption enabled, your entries are scrambled before leaving your phone. We only see encrypted gibberish.</p>
 
-                <h4>Does OpenAI train on my entries?</h4>
-                <p>No. Per OpenAI's API policy, data sent via API is not used for training their models.</p>
+                <h4>Do AI partners train on my entries?</h4>
+                <p>No. Per our AI partners' policies, data sent for processing is not used for training their models.</p>
 
                 <h4>What if I switch phones?</h4>
                 <p>Sign in on your new phone and restore from encrypted backup (if you set it up).</p>
 
                 <h4>Is voice transcription accurate?</h4>
-                <p>Yes. Mento uses OpenAI Whisper, one of the most accurate speech recognition systems available.</p>
+                <p>Yes. Mento uses advanced speech recognition technology, providing highly accurate transcription.</p>
 
                 <h4>When do Moments appear?</h4>
                 <p>After creating 7 entries, Moments unlocks and shows you past entries from the same day in previous weeks, months, and years.</p>
@@ -840,7 +840,7 @@
                 <h3>Technical Details (For Those Who Care)</h3>
                 <p><strong>Data Storage:</strong> Local SQLite database on your device, with optional encrypted backup to SOC 2 compliant PostgreSQL.</p>
                 <p><strong>Encryption:</strong> AES-256-GCM encryption (bank-level security) with device-specific encryption keys.</p>
-                <p><strong>AI Services:</strong> OpenAI Whisper for speech-to-text and OpenAI GPT-4 for analysis and summaries.</p>
+                <p><strong>AI Services:</strong> Advanced speech recognition for voice-to-text and AI analysis for insights and summaries.</p>
                 <p><strong>Backend:</strong> Supabase for authentication (Google & Apple Sign-In), with local-first database and optional sync.</p>
                 <p><strong>Works Offline For:</strong> Reading past entries, writing text entries, and viewing insights (if already loaded).</p>
                 <p><strong>Requires Internet For:</strong> Initial sign-in, voice transcription, AI analysis, smart summaries, and optional encrypted backups.</p>
