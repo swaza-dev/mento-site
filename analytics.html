@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mento Site Analytics</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #f8f5f0;
+            color: #2d2d2d;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #008755;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e8e8e8;
+        }
+
+        .metric-card h3 {
+            color: #008755;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2d2d2d;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #6b6b6b;
+            font-size: 0.9rem;
+        }
+
+        .page-stats {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e8e8e8;
+        }
+
+        .page-stats h3 {
+            color: #008755;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .page-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .page-item:last-child {
+            border-bottom: none;
+        }
+
+        .page-name {
+            font-weight: 500;
+            color: #2d2d2d;
+        }
+
+        .page-views {
+            color: #008755;
+            font-weight: 600;
+        }
+
+        .refresh-btn {
+            background: #008755;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            transition: background 0.2s;
+        }
+
+        .refresh-btn:hover {
+            background: #006644;
+        }
+
+        .info-box {
+            background: #e6f4ef;
+            border: 1px solid #00A876;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-box h4 {
+            color: #008755;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #4a4a4a;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Mento Site Analytics</h1>
+        
+        <div class="info-box">
+            <h4>🔍 Analytics Setup</h4>
+            <p>Vercel Analytics is now tracking page views and unique visitors across your Mento site. Data typically appears within 24 hours of implementation.</p>
+        </div>
+
+        <button class="refresh-btn" onclick="refreshAnalytics()">🔄 Refresh Data</button>
+
+        <div class="analytics-grid">
+            <div class="metric-card">
+                <h3>📈 Total Page Views</h3>
+                <div class="metric-value" id="totalViews">-</div>
+                <div class="metric-label">All time</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>👥 Unique Visitors</h3>
+                <div class="metric-value" id="uniqueVisitors">-</div>
+                <div class="metric-label">All time</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>📱 Mobile Traffic</h3>
+                <div class="metric-value" id="mobileTraffic">-</div>
+                <div class="metric-label">Percentage</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>🌍 Top Country</h3>
+                <div class="metric-value" id="topCountry">-</div>
+                <div class="metric-label">By visits</div>
+            </div>
+        </div>
+
+        <div class="page-stats">
+            <h3>📄 Page Performance</h3>
+            <div class="page-item">
+                <span class="page-name">Home Page</span>
+                <span class="page-views" id="homeViews">-</span>
+            </div>
+            <div class="page-item">
+                <span class="page-name">Blog</span>
+                <span class="page-views" id="blogViews">-</span>
+            </div>
+            <div class="page-item">
+                <span class="page-name">Waitlist</span>
+                <span class="page-views" id="waitlistViews">-</span>
+            </div>
+            <div class="page-item">
+                <span class="page-name">Privacy Policy</span>
+                <span class="page-views" id="privacyViews">-</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for demonstration - replace with real Vercel Analytics API calls
+        function refreshAnalytics() {
+            // Simulate loading
+            document.querySelectorAll('.metric-value, .page-views').forEach(el => {
+                el.textContent = 'Loading...';
+            });
+
+            setTimeout(() => {
+                // Mock data - replace with actual Vercel Analytics data
+                document.getElementById('totalViews').textContent = '1,247';
+                document.getElementById('uniqueVisitors').textContent = '892';
+                document.getElementById('mobileTraffic').textContent = '68%';
+                document.getElementById('topCountry').textContent = 'US';
+                
+                document.getElementById('homeViews').textContent = '856';
+                document.getElementById('blogViews').textContent = '234';
+                document.getElementById('waitlistViews').textContent = '123';
+                document.getElementById('privacyViews').textContent = '34';
+            }, 1000);
+        }
+
+        // Load data on page load
+        refreshAnalytics();
+    </script>
+
+    <script src="https://unpkg.com/@vercel/analytics@latest/dist/script.js" defer></script>
+</body>
+</html>
