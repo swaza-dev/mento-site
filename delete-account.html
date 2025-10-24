@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Mento AI</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-primary: #008755;
+            --green-secondary: #00A876;
+            --green-light: #00C085;
+            --gold-accent: #C7A570;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8f5f0;
+            color: #191919;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 135, 85, 0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--green-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            padding: 0 1rem;
+        }
+
+        h2 {
+            color: var(--green-primary);
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--green-secondary);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.05rem;
+        }
+
+        .method-box {
+            background: #f8f5f0;
+            border-left: 4px solid var(--green-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .method-title {
+            font-weight: 600;
+            color: var(--green-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ol li {
+            margin-bottom: 0.75rem;
+            color: #333;
+            padding-left: 0.5rem;
+        }
+
+        ol li strong {
+            color: var(--green-primary);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: #856404;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #0c5460;
+        }
+
+        .email-link {
+            color: var(--green-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--green-primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--green-primary);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--green-primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p, ol li, ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/icon.png" alt="Mento Logo" class="logo">
+            <h1>Delete Your Account</h1>
+            <p class="subtitle">Remove your Mento AI account and all associated data</p>
+        </div>
+
+        <div class="content">
+            <p>We're sorry to see you go! If you'd like to delete your Mento AI account and all associated data, you can do so using one of the methods below.</p>
+
+            <div class="warning-box">
+                <p><strong>⚠️ Warning:</strong> Account deletion is permanent and cannot be undone. All your entries, insights, and data will be permanently deleted and cannot be recovered.</p>
+            </div>
+
+            <h2>Method 1: Delete from the App (Recommended)</h2>
+            <div class="method-box">
+                <div class="method-title">In-App Account Deletion</div>
+                <ol>
+                    <li>Open the <strong>Mento AI</strong> app on your device</li>
+                    <li>Tap the <strong>Profile</strong> tab at the bottom</li>
+                    <li>Scroll down to <strong>Account Settings</strong></li>
+                    <li>Tap <strong>"Delete Account"</strong></li>
+                    <li>Read the warning and confirm deletion</li>
+                    <li>Enter your email to verify</li>
+                    <li>Tap <strong>"Permanently Delete"</strong> to confirm</li>
+                </ol>
+                <p>Your account and all data will be deleted immediately.</p>
+            </div>
+
+            <h2>Method 2: Request Deletion via Email</h2>
+            <div class="method-box">
+                <div class="method-title">Email Support Team</div>
+                <p>If you're unable to access the app, you can request account deletion by emailing us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:mentolabsllc@gmail.com?subject=Delete%20My%20Account" class="email-link">mentolabsllc@gmail.com</a></li>
+                    <li><strong>Subject:</strong> Delete My Account</li>
+                    <li><strong>Include:</strong> Your registered email address</li>
+                </ul>
+                <p>We'll process your request within 48 hours and send you a confirmation email once your account has been deleted.</p>
+            </div>
+
+            <h2>What Gets Deleted</h2>
+            <p>When you delete your account, the following data is permanently removed:</p>
+            <ul>
+                <li><strong>Profile Information:</strong> Name, email, profile picture</li>
+                <li><strong>All Journal Entries:</strong> Voice recordings, photos, text entries, and metadata</li>
+                <li><strong>AI-Generated Insights:</strong> All insights, analyses, and recommendations</li>
+                <li><strong>App Usage Data:</strong> Activity logs, preferences, and settings</li>
+                <li><strong>Search History:</strong> All search queries and results</li>
+            </ul>
+
+            <h2>What We Retain</h2>
+            <p>For legal and accounting purposes, we may retain the following for a limited time:</p>
+            <ul>
+                <li><strong>Subscription Records:</strong> Payment history and transaction records (90 days, as required by law)</li>
+                <li><strong>Anonymized Crash Logs:</strong> De-identified error reports for app improvement (cannot be linked to you)</li>
+            </ul>
+            <p>All personal and identifiable data is deleted immediately and permanently.</p>
+
+            <div class="info-box">
+                <p><strong>📧 Need Help?</strong> If you have questions about account deletion or data removal, contact us at <a href="mailto:mentolabsllc@gmail.com" class="email-link">mentolabsllc@gmail.com</a></p>
+            </div>
+
+            <h2>Before You Go...</h2>
+            <p>Is there something we could do better? We'd love to hear your feedback:</p>
+            <ul>
+                <li>Email us at <a href="mailto:mentolabsllc@gmail.com" class="email-link">mentolabsllc@gmail.com</a></li>
+                <li>Let us know what we could improve</li>
+                <li>Your feedback helps us build a better product for everyone</li>
+            </ul>
+
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
+
