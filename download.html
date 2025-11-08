@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Mento</title>
+    <title>Download Mento - AI Voice Journal</title>
+    <link rel="icon" type="image/png" href="/icon.png">
     <style>
         * {
             margin: 0;
@@ -83,7 +84,11 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 135, 85, 0.1);
         }
 
         /* Logo with pulse animation */
@@ -116,113 +121,159 @@
         .subtitle {
             font-size: 1.5rem;
             color: #6b6b6b;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-weight: 300;
         }
 
-        /* Animated dots */
-        .loading-dots {
-            display: inline-flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--green-primary);
-            animation: bounce 1.4s infinite ease-in-out;
-        }
-
-        .dot:nth-child(1) {
-            animation-delay: -0.32s;
-        }
-
-        .dot:nth-child(2) {
-            animation-delay: -0.16s;
-        }
-
-        @keyframes bounce {
-            0%, 80%, 100% {
-                transform: scale(0);
-            }
-            40% {
-                transform: scale(1);
-            }
-        }
-
-        /* Progress bar */
-        .progress-container {
-            width: 100%;
-            max-width: 400px;
-            height: 4px;
-            background: rgba(0, 135, 85, 0.1);
-            border-radius: 2px;
-            margin: 0 auto 2rem;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--green-primary), var(--green-secondary));
-            border-radius: 2px;
-            animation: progress 3s ease-in-out infinite;
-        }
-
-        @keyframes progress {
-            0% {
-                width: 0%;
-            }
-            50% {
-                width: 70%;
-            }
-            100% {
-                width: 0%;
-            }
-        }
-
-        /* Email form */
-        .notify-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 450px;
-            margin: 0 auto 2rem;
-        }
-
-        .notify-input {
-            flex: 1;
-            padding: 1rem 1.25rem;
-            border: 2px solid rgba(0, 135, 85, 0.2);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            background: white;
-            transition: border-color 0.3s;
-        }
-
-        .notify-input:focus {
-            outline: none;
-            border-color: var(--green-primary);
-        }
-
-        .notify-button {
-            padding: 1rem 2rem;
-            background: var(--green-primary);
+        .status-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-secondary));
             color: white;
-            border: none;
-            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
             font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 135, 85, 0.2);
+        }
+
+        /* Download buttons */
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 350px;
+            margin: 0 auto 3rem;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.25rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s;
             font-family: inherit;
         }
 
-        .notify-button:hover {
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 135, 85, 0.3);
+        }
+
+        .btn-ios {
+            background: #000;
+            color: white;
+        }
+
+        .btn-ios:hover {
+            background: #111;
+        }
+
+        .btn-android {
+            background: var(--green-primary);
+            color: white;
+        }
+
+        .btn-android:hover {
             background: #006644;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 135, 85, 0.3);
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Features list */
+        .features-mini {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f5f0;
+            border-radius: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-check {
+            width: 20px;
+            height: 20px;
+            color: var(--green-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* QR Code section */
+        .qr-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 135, 85, 0.1);
+        }
+
+        .qr-title {
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .qr-codes {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .qr-item {
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            padding: 10px;
+            background: white;
+            border: 2px solid rgba(0, 135, 85, 0.1);
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .qr-label {
+            font-size: 0.9rem;
+            color: #6b6b6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .qr-label svg {
+            width: 18px;
+            height: 18px;
         }
 
         /* Links */
@@ -230,7 +281,7 @@
             display: flex;
             gap: 2rem;
             justify-content: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .link {
@@ -238,6 +289,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .link:hover {
@@ -254,13 +306,28 @@
                 font-size: 1.25rem;
             }
 
-            .notify-form {
-                flex-direction: column;
+            .container {
+                padding: 2rem;
             }
 
             .logo {
                 width: 80px;
                 height: 80px;
+            }
+
+            .qr-codes {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .qr-code {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 0.75rem;
+            }
+
+            .download-btn {
+                font-size: 1rem;
             }
         }
     </style>
@@ -297,27 +364,86 @@
             <line x1="796" y1="361" x2="831" y2="432" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
         </svg>
 
-        <h1>Coming Soon</h1>
-        <p class="subtitle">We're building something special</p>
+        <h1>Download Mento</h1>
+        <p class="subtitle">Your AI-Powered Voice Journal</p>
 
-        <div class="loading-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+        <div class="status-badge">🎉 Now Available</div>
+
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/us/app/mento-ai-voice-journal/id6754181756" target="_blank" class="download-btn btn-ios">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 16.97 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                </svg>
+                Download on App Store
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.mymentoapp.mento" target="_blank" class="download-btn btn-android">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                </svg>
+                Get it on Google Play
+            </a>
         </div>
 
-        <div class="progress-container">
-            <div class="progress-bar"></div>
+        <div class="features-mini">
+            <div class="feature-item">
+                <svg class="feature-check" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span class="feature-text">Voice recording with AI transcription</span>
+            </div>
+            <div class="feature-item">
+                <svg class="feature-check" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span class="feature-text">Automatic organization and tagging</span>
+            </div>
+            <div class="feature-item">
+                <svg class="feature-check" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span class="feature-text">Privacy-first design with local encryption</span>
+            </div>
+            <div class="feature-item">
+                <svg class="feature-check" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                <span class="feature-text">Rediscover memories with AI insights</span>
+            </div>
         </div>
 
-        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll notify you when we launch.');">
-            <input type="email" class="notify-input" placeholder="Enter your email" required>
-            <button type="submit" class="notify-button">Notify Me</button>
-        </form>
+        <div class="qr-section">
+            <p class="qr-title">📱 Or scan with your phone camera</p>
+            <div class="qr-codes">
+                <div class="qr-item">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=https://apps.apple.com/us/app/mento-ai-voice-journal/id6754181756" alt="QR Code for App Store">
+                    </div>
+                    <div class="qr-label">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 16.97 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                        </svg>
+                        iOS App Store
+                    </div>
+                </div>
+                <div class="qr-item">
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=https://play.google.com/store/apps/details?id=com.mymentoapp.mento" alt="QR Code for Google Play">
+                    </div>
+                    <div class="qr-label">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                        </svg>
+                        Google Play Store
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="links">
-            <a href="https://www.mymento.app/blog" class="link">Blog</a>
-            <a href="mailto:support@mymento.app" class="link">Contact</a>
+            <a href="/" class="link">Home</a>
+            <a href="https://www.mymento.app/public/blog" class="link">Blog</a>
+            <a href="/privacy.html" class="link">Privacy</a>
+            <a href="mailto:support@mymento.app" class="link">Support</a>
         </div>
     </div>
 </body>
